@@ -1,0 +1,45 @@
+$graydark: rgb(85, 85, 85);
+$graylight: rgb(170, 170, 170);
+
+.stopCounterWrapper {
+    display: flex;
+    align-items: center;
+    background-color: $graylight;
+    border-radius: 6px;
+    padding: 4px 10px;
+
+    >.title {
+        border: 2px solid black;
+        border-radius: 8px;
+        padding: 0 4px;
+        font-size: 16px;
+        font-weight: bold;
+        min-width: 25px;
+        text-align: center;
+        background-color: $graydark;
+        color: white;
+    }
+}
+
+.stopLogo {
+    height: 30px;
+    width: 30px;
+    margin: -2px 4px 0 4px;
+}
+
+.stopCounter {
+    // border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+
+    // >p {
+    //     border: 1px dotted black;
+    //     width: 100%;
+    //     text-align: center;
+    // }
+    >p:first-child {
+        border-bottom: 1px dotted black;
+    }
+}
