@@ -28,7 +28,6 @@ const ProgressBar = ({steps, completed}: Props) => {
                     isDone={step < completed}
                 />
             )}
-            <p className='title'>{`${completed}/${steps}`}</p>
         </div>
     )
 }
