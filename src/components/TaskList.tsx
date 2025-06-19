@@ -4,6 +4,7 @@ import blockerLogo from '../assets/block.svg'
 import exclamationLogo from '../assets/exclamation.svg'
 import sunLogo from '../assets/sun.svg'
 import nightLogo from '../assets/moon.svg'
+import recursLogo from '../assets/repeat.svg'
 
 interface TaskItemProps {
     message: string
@@ -24,10 +25,11 @@ interface Props {
 const TaskItem = ({message, tags}: TaskItemProps) => {
     const getIcon = () => {
         if (tags.includes('#blocker')) return <img src={blockerLogo} className='taskItemIcon'/>
-        if (tags.includes('expired')) return <img src={expiredLogo} className='taskItemIcon'/>
         if (tags.includes('important')) return <img src={exclamationLogo} className='taskItemIcon'/>
         if (tags.includes('morning')) return <img src={sunLogo} className='taskItemIcon'/>
         if (tags.includes('night')) return <img src={nightLogo} className='taskItemIcon'/>
+        if (tags.includes('recurs')) return <img src={recursLogo} className='taskItemIcon'/>
+        if (tags.includes('expired')) return <img src={expiredLogo} className='taskItemIcon'/>
         return <div className='circle'/>
     }
     
