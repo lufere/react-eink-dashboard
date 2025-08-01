@@ -11,6 +11,7 @@ import Timeline from './components/Timeline'
 import timelineData from './timeline.json'
 import html2canvas from 'html2canvas'
 import { v4 as uuidv4 } from 'uuid';
+import { format } from 'date-fns'
 
 const tasksToday = [
   {title: 'Test script to restore S3', completed: false, tags: ['blocker']},
@@ -60,6 +61,7 @@ function App() {
       completed: 0,
     },
     calendarTasks: [],
+    quote: '',
   });
   // const [test, setTest] = useState(0)
 
@@ -91,12 +93,12 @@ function App() {
       const formData = new FormData();
       formData.append('image', blob!, 'canvas.png');
 
-      const res = await fetch('http://localhost:3000/upload', {
+      const res = await fetch('http://192.168.1.77:3000/upload', {
         method: 'POST',
         body: formData,
       });
 
-      await fetch('http://localhost:3000/uuid', {
+      await fetch('http://192.168.1.77:3000/uuid', {
         method: "POST",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ uuid }),
@@ -110,7 +112,7 @@ function App() {
   const getLatestData = useCallback(async () => {
     console.log('getLatestData')
     // console.log(test)
-    const response = await fetch('http://localhost:3000/obsidian-data');
+    const response = await fetch('http://192.168.1.77:3000/obsidian-data');
     console.log({response})
     const data = await response.json();
     console.log({data})
@@ -153,7 +155,7 @@ function App() {
           <div className="layout">
             <div className='wrapper'>
               <div className='header'>
-                <div className='title whiteContainer'>2:14</div>
+                <div className='title whiteContainer'>{format(new Date(), 'h:mm')}</div>
                 <ProgressBar steps={latestData.deepWork.total} completed={latestData.deepWork.completed}/>
                 <StopCounter total={102} today={7}/>
                 </div>
@@ -179,13 +181,13 @@ function App() {
               </div>
               <div className='extraContainer'>
                 <p className='quote'>
-                  {quotes[Math.floor(Math.random()*quotes.length)]}
+                  {/* {quotes[Math.floor(Math.random()*quotes.length)]} */}
+                  {latestData.quote}
                 </p>
               </div>
             </div>
           </div>
           {/* <div className="title_bar">
-            <img className="image" src="https://usetrmnl.com/images/plugins/trmnl--render.svg" />
             <span className="title">Plugin Title</span>
             <span className="instance">Instance Title</span>
           </div> */}
@@ -200,7 +202,6 @@ function App() {
       })}>{`Change ${test}`}</button> */}
       {/* <button onClick={() => setTest(prev => prev+1)}>{`Change ${test}`}</button> */}
       <button onClick={getLatestData}>{`Get Data`}</button>
-      <div>{JSON.stringify(latestData)}</div>
     </>
   )
 }
