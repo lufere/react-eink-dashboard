@@ -1,0 +1,30 @@
+{
+ "tasksToday": [
+  {"title": "Test script to restore S3", "completed": false, "tags": ["blocker"]},
+  {"title": "Color coding for calendar", "completed": false, "tags": ["expired"]},
+  {"title": "Portabilidad Telcel => ATT GO ", "completed": false, "tags": []},
+  {"title": "Ask Steve for change and when will it be available to test on UAT ", "completed": false, "tags": [""]},
+  {"title": "Corte cabello", "completed": false, "tags": [""]},
+  {"title": "Cita dentista", "completed": false, "tags": [""]},
+  {"title": "Mute walking pad", "completed": false, "tags": [""]}
+],
+
+ "tasksDailies": [
+  {"title": "Morning Protein", "completed": false, "tags": []},
+  {"title": "Supplements", "completed": false, "tags": []},
+  {"title": "Reading", "completed": false, "tags": []},
+  {"title": "Career learning", "completed": false, "tags": []},
+  {"title": "Gym compound", "completed": false, "tags": []},
+  {"title": "Cardio", "completed": false, "tags": []},
+  {"title": "Floss", "completed": false, "tags": []},
+  {"title": "Shower", "completed": false, "tags": []}
+],
+
+ "tasksHabits": [
+  {"title": "3k steps ", "completed": false, "tags": []},
+  {"title": "30 mins Free learning", "completed": false, "tags": []},
+  {"title": "Gym accessories", "completed": false, "tags": []},
+  {"title": "10 mins cleaning", "completed": false, "tags": []},
+  {"title": "10 mins piano", "completed": false, "tags": []}
+]
+}
