@@ -1,0 +1,38 @@
+$gray1: rgb(85, 85, 85);
+$gray2: rgb(170, 170, 170);
+
+.step {
+    height: 30px;
+    width: 80px;
+    border: 2px solid black;
+    border-right-width: 0;
+}
+
+.complete {
+    background-color: $gray1;
+    // image-rendering: pixelated;
+    // image-rendering: -moz-crisp-edges;
+    // image-rendering: crisp-edges;
+}
+
+.incomplete {
+    background-color: $gray2;
+    // image-rendering: pixelated;
+    // image-rendering: -moz-crisp-edges;
+    // image-rendering: crisp-edges;
+}
+
+.progressBar {
+    display: flex;
+    align-items: center;
+}
+
+.progressStart {
+    border-radius: 16px 0 0 16px;
+}
+
+.progressEnd {
+    border-radius: 0 16px 16px 0;
+    margin-right: 8px;
+    border-right-width: 2px;
+}
