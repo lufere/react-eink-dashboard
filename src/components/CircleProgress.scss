@@ -1,0 +1,32 @@
+$graydark: rgb(85, 85, 85);
+$graylight: rgb(170, 170, 170);
+$iconsize: 44px;
+$wrapperSize: 80px;
+
+.circleWrapper {
+    margin-top: 140px;
+    border: 5px solid black;
+    border-radius: 100%;
+    height: $wrapperSize;
+    width: $wrapperSize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $graylight;
+}
+
+.circleProgressIconWrapper {
+    border: 2px solid black;
+    border-radius: 100%;
+    background-color: black;
+    height: $iconsize + 12px;
+    width: $iconsize + 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > img {
+        height: $iconsize;
+        width: $iconsize;
+    }
+}
+
