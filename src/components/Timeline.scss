@@ -14,10 +14,11 @@ $gray2: rgb(170, 170, 170);
     justify-content: center;
     position: relative;
     background-color: $gray2;
+    font-size: 22px;
 
-    // image-rendering:pixelated;
-    // image-rendering:-moz-crisp-edges;
-    // image-rendering:crisp-edges
+    p {
+        margin-top: 3px;
+    }
 }
 
 .calendarItem.current {
@@ -34,9 +35,17 @@ $gray2: rgb(170, 170, 170);
 .timeLabel {
     position: absolute;
     align-self: flex-start;
-    font-size: 12px;
+    font-size: 16px;
     left: 8px;
-    top: 4px;
+    top: 0px;
+}
+
+.timeLabelEnd {
+    position: absolute;
+    align-self: flex-end;
+    font-size: 16px;
+    right: 8px;
+    top: 0px;
 }
 
 .timelineContainer {

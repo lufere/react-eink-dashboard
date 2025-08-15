@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react'
-import './App.scss'
-import ProgressTitle from './components/ProgressTitle'
-import TaskList from './components/TaskList'
-import ProgressBar from './components/ProgressBar'
-import Timeline from './components/Timeline'
-import StopCounter from './components/StopCounter'
-import { format } from 'date-fns'
+import { useEffect, useState } from 'react';
+import './App.scss';
+import ProgressTitle from './components/ProgressTitle';
+import TaskList from './components/TaskList';
+import Timeline from './components/Timeline';
+import CircleProgress from './components/CircleProgress';
 
 function App() {
   const [latestData, setLatestData] = useState({
@@ -29,44 +27,55 @@ function App() {
     quote: '',
   });
 
-	const getLatestData = async () => {
-		const response = await fetch('http://192.168.1.12:3000/obsidian-data');
-		const data = await response.json();
+  const getLatestData = async () => {
+    const response = await fetch('http://192.168.1.12:3000/obsidian-data');
+    const data = await response.json();
     setLatestData(data);
-	}
+  };
 
-
-	useEffect(() => {
-		getLatestData();
-	}, [])
+  useEffect(() => {
+    getLatestData();
+  }, []);
 
   return (
     <>
       <div className='wrapper' id='export'>
-        <div className='header'>
-          <div className='title whiteContainer'>{format(new Date(), 'h:mm')}</div>
-          <ProgressBar steps={latestData.deepWork.total} completed={latestData.deepWork.completed}/>
-          <StopCounter total={102} today={7}/>
-          </div>
+        <div className='progressIcons'>
+          <CircleProgress
+            icon='work'
+            total={latestData.deepWork.total}
+            completed={latestData.deepWork.completed}
+          />
+          <CircleProgress icon='pending' total={3} completed={1} />
+          <CircleProgress icon='exercise' total={20} completed={17} />
+        </div>
         <div className='todayContainer tasksContainer'>
           <div className='titleWrapper'>
-            <ProgressTitle title="TODAY'S TASKS" progress={latestData.tasksToday.progress}/>
+            <ProgressTitle
+              title="TODAY'S TASKS"
+              progress={latestData.tasksToday.progress}
+            />
             {/* <div className='title date'> April 14 2025</div> */}
           </div>
           <TaskList tasks={latestData.tasksToday.tasks} limit={7} />
         </div>
         <div className='dailiesContainer tasksContainer'>
-          <ProgressTitle title='DAILIES' progress={latestData.tasksDailies.progress}/>
-          <TaskList tasks={latestData.tasksDailies.tasks}  limit={6}/>
+          <ProgressTitle
+            title='DAILIES'
+            progress={latestData.tasksDailies.progress}
+          />
+          <TaskList tasks={latestData.tasksDailies.tasks} limit={6} />
           <div className='shortBorder' />
         </div>
         <div className='habitsContainer tasksContainer'>
-          <ProgressTitle title='HABITS' progress={latestData.tasksHabits.progress}/>
-          <TaskList tasks={latestData.tasksHabits.tasks} limit={6}/>
-
+          <ProgressTitle
+            title='HABITS'
+            progress={latestData.tasksHabits.progress}
+          />
+          <TaskList tasks={latestData.tasksHabits.tasks} limit={6} />
         </div>
         <div className='calendarContainer'>
-          <Timeline data={latestData.calendarTasks}/>
+          <Timeline data={latestData.calendarTasks} />
         </div>
         <div className='extraContainer'>
           <p className='quote'>
@@ -76,7 +85,7 @@ function App() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

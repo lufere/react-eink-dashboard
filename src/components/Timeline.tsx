@@ -73,8 +73,9 @@ const CalendarItem = ({message, isCurrent, start, end}: CalendarItemProps) => {
                 gridRow: ` ${startOffset} / ${startOffset+size}`
             }}
         >
-            <p className='timeLabel'>{`${start} - ${end}`}</p>
+            <p className='timeLabel'>{start}</p>
             <p>{message}</p>
+            <p className='timeLabelEnd'>{end}</p>
         </div>
     )
 }
@@ -139,7 +140,7 @@ const Timeline = ({data}: Props) => {
         // const calendarEndH = calendarStartH +2
         // const calendarEndM = calendarStartM
         // const calendarEnd = new Date(new Date().setHours(calendarEndH, calendarEndM))
-        const calendarEnd = addMinutes(calendarStart, 120);
+        const calendarEnd = addMinutes(calendarStart, 150);
         if(
             // +taskStart >= +calendarStart && 
             +taskStart <= +calendarEnd
